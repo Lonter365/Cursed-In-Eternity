@@ -267,6 +267,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       transform: translateY(0);
       pointer-events: auto;
     }
+    .countdown-box {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background-color: black;
+  padding: 10px 0;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.countdown-unit {
+  text-align: center;
+}
+
+.count-num {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff4d4d;
+  display: block;
+}
+
+.count-label {
+  font-size: 12px;
+  color: white;
+  letter-spacing: 1px;
+}
   </style>
 </head>
 
@@ -416,6 +442,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Albüm Grid Yan Yana -->
   <div class="diskografi-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;">
+    <!-- Rise Of Silence (2026) -->
+<div class="album-card">
+  <div class="album-cover">
+    <img src="riseofsilence.png" alt="Rise Of Silence">
+
+    <div class="album-info">
+      <h3>Rise Of Silence</h3>
+
+      <!-- Geri Sayım Kutusu -->
+      <div class="countdown-box" data-date="Feb 6, 2026 00:00:00">
+        <div class="countdown-unit">
+          <span class="count-num days">00</span>
+          <span class="count-label">GÜN</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="count-num hours">00</span>
+          <span class="count-label">SAAT</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="count-num minutes">00</span>
+          <span class="count-label">DAKİKA</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="count-num seconds">00</span>
+          <span class="count-label">SANİYE</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tracklist">
+      <ul>
+        <li>Albüm şarkı listesi buraya gelecek...</li>
+      </ul>
+    </div>
+  </div>
+</div>
 
     <!-- Again (2024) -->
     <div class="album-card">
@@ -670,51 +732,78 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- Sayfa Geçişleri ve Form Script -->
-  <script>
-    function showSection(sectionId) {
-      const sections = document.querySelectorAll('.page-section');
-      sections.forEach(sec => sec.classList.remove('active'));
-
-      const target = document.getElementById(sectionId);
-      if (target) {
-        target.classList.add('active');
-        window.scrollTo({
-          top: target.offsetTop,
-          behavior: 'smooth'
-        });
-      }
-    }
-
-    const form = document.getElementById("contactForm");
-    const successMessage = document.getElementById("successMessage");
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const data = new FormData(form);
-
-      fetch(form.action, {
-        method: "POST",
-        body: data,
-        headers: {
-          Accept: "application/json"
-        }
-      }).then(response => {
-        if (response.ok) {
-          successMessage.style.display = "block";
-          form.reset();
-        } else {
-          alert("Bir hata oluştu. Lütfen tekrar deneyin.");
-        }
-      });
+ <!-- Sayfa Geçişleri, Form ve Geri Sayım Script -->
+<script>
+function showSection(sectionId) {
+  const sections = document.querySelectorAll('.page-section');
+  sections.forEach(sec => sec.classList.remove('active'));
+  const target = document.getElementById(sectionId);
+  if (target) {
+    target.classList.add('active');
+    window.scrollTo({
+      top: target.offsetTop,
+      behavior: 'smooth'
     });
+  }
+}
 
-    window.onload = function () {
-      showSection('home');
-    };
-  </script>
+// İletişim formu kodları
+const form = document.getElementById("contactForm");
+const successMessage = document.getElementById("successMessage");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const data = new FormData(form);
+  fetch(form.action, {
+    method: "POST",
+    body: data,
+    headers: { Accept: "application/json" }
+  }).then(response => {
+    if (response.ok) {
+      successMessage.style.display = "block";
+      form.reset();
+    } else {
+      alert("Bir hata oluştu. Lütfen tekrar deneyin.");
+    }
+  });
+});
+
+// 🎛 Albüm geri sayım fonksiyonu
+function startCountdown() {
+  const countdowns = document.querySelectorAll('.countdown-box');
+  countdowns.forEach(cd => {
+    const releaseDate = new Date(cd.getAttribute('data-date')).getTime();
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = releaseDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      cd.querySelector('.days').textContent = days.toString().padStart(2, '0');
+      cd.querySelector('.hours').textContent = hours.toString().padStart(2, '0');
+      cd.querySelector('.minutes').textContent = minutes.toString().padStart(2, '0');
+      cd.querySelector('.seconds').textContent = seconds.toString().padStart(2, '0');
+
+      if (distance < 0) {
+        cd.innerHTML = "<span style='color:#ff4d4d;'>Albüm Çıktı!</span>";
+      }
+    }, 1000);
+  });
+}
+
+// Sayfa yüklenince hem home açılacak hem countdown başlayacak
+window.onload = function () {
+  showSection('home');
+  startCountdown();
+};
+</script>
 </body>
 </html>
+
 
 
 
