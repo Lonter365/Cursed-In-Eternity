@@ -293,6 +293,90 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   color: white;
   letter-spacing: 1px;
 }
+.presave-section {
+  text-align: center;
+  margin: 40px auto;
+  background-color:transparent;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+}
+
+.album-cover-img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.countdown-box {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background-color: transparent; /* veya transparent, tercihe göre */
+  padding: 10px 0;
+  border-radius: 8px;
+  margin: 20px 0; /* margin-top yerine daha esnek */
+}
+
+/* 🎵 Siyah Arka Planlı Countdown Kutusu */
+.presave-countdown {
+  text-align: center;
+  margin: 40px auto;
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+}
+
+.countdown-box {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background-color: transparent;
+  padding: 10px 0;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.countdown-unit {
+  text-align: center;
+}
+
+.count-num {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff4d4d;
+  display: block;
+}
+
+.count-label {
+  font-size: 12px;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.presave-btn {
+  display: inline-flex;       /* logo + yazıyı yan yana hizalar */
+  align-items: center;        /* dikey ortalar */
+  gap: 8px;                   /* logo ile yazı arasına boşluk */
+  background-color: #ff4d4d;
+  color: white;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.presave-btn:hover {
+  background-color: #cc0000;
+}
+
+.presave-icon {
+  width: 24px;   /* logonun boyutu */
+  height: 24px;
+}
   </style>
 </head>
 
@@ -372,16 +456,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- Coming Soon Başlık -->
       <h2 style="text-align:center; color:white; margin-bottom: 15px;">Coming Soon</h2>
 
-      <!-- Geri Sayım -->
-      <div class="countdown-box" style="margin-bottom: 30px; text-align:center;">
-        <iframe src="https://riseofsilence.sonikit.com/" 
-                width="100%" 
-                height="800" 
-                frameborder="0" 
-                style="border-radius:12px;" 
-                loading="lazy">
-        </iframe>
-      </div>
+      <!-- Albüm Pre-Save Bölümü -->
+<div class="presave-section">
+  <!-- Albüm Kapağı -->
+  <img src="riseofsilence.png" alt="Rise Of Silence" class="album-cover-img">
+
+  <!-- Geri Sayım Kutusu -->
+  <div class="countdown-box" data-date="Feb 6, 2026 00:00:00">
+    <div class="countdown-unit">
+      <span class="count-num days">00</span>
+      <span class="count-label">DAYS</span>
+    </div>
+    <div class="countdown-unit">
+      <span class="count-num hours">00</span>
+      <span class="count-label">HOURS</span>
+    </div>
+    <div class="countdown-unit">
+      <span class="count-num minutes">00</span>
+      <span class="count-label">MINS</span>
+    </div>
+    <div class="countdown-unit">
+      <span class="count-num seconds">00</span>
+      <span class="count-label">SECS</span>
+    </div>
+  </div>
+
+   <!-- Pre-Save Butonu -->
+<a href="https://distrokid.com/hyperfollow/cursedineternity1/rise-of-silence" 
+   target="_blank" class="presave-btn">
+  <img src="SpotifyLogo.png" alt="Spotify" class="presave-icon">
+  Pre-Save Albümü
+</a>
+</div>
+
       <!-- Logo -->
       <div class="logo-kan-wrapper" style="margin-bottom: 20px;">
         <img src="Cursed In Eternity.png" alt="Cursed In Eternity Logo" style="width: 160px; height: auto;">
@@ -426,7 +533,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         Tolga Demirdelen: Lead/Ritim Gitar
         Barış Gerçek: Ritim Gitar
         Muhammed İzmirlioğlu: Vokal
-        Hasan Yüzücü: Vokal
+        Hasan Yüzücü: Bas Gitar\Back Vokal
         Bedirhan Karamızrak: Davul
       </p>
     </div>
