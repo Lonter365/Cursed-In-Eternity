@@ -1,0 +1,21 @@
+{
+  "name": "Cursed In Eternity",
+  "short_name": "CursedIE",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#ff4d4d",
+  "description": "Cursed In Eternity, karanlık atmosferi ve güçlü metal sound'u ile dikkat çeken bir grup.",
+  "icons": [
+    {
+      "src": "Cursed In Eternity.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "Cursed In Eternity.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
