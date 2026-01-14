@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Cursed in Eternity</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
   <!-- Cookie Consent Çerez Şeridi (Cursed) -->
   <link rel="stylesheet" type="text/css" media="all" href="http://oguzturk.net/lab/demo/cerez/cerez.css" />
   <script type='text/javascript' src='http://oguzturk.net/lab/demo/cerez/cerez.js'></script>
@@ -281,6 +282,139 @@
       transform: translateY(0);
       pointer-events: auto;
     }
+
+    .countdown-box {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background: #000;
+      padding: 10px 0;
+      border-radius: 8px;
+      margin: 18px 0;
+    }
+
+    .countdown-unit {
+      text-align: center;
+    }
+
+    .count-num {
+      font-size: 28px;
+      font-weight: bold;
+      color: #ff4d4d;
+      display: block;
+      letter-spacing: 1px;
+    }
+
+    .count-label {
+      font-size: 12px;
+      color: white;
+      letter-spacing: 1px;
+    }
+
+    .coming-soon-section {
+      text-align: center;
+      margin: 40px auto 0 auto;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 24px 16px 16px 16px;
+      border-radius: 12px;
+      max-width: 600px;
+    }
+
+    .coming-soon-title {
+      font-size: 28px;
+      font-weight: bold;
+      color: #ff4d4d;
+      margin-bottom: 18px;
+      letter-spacing: 2px;
+    }
+
+    .presave-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ff4d4d;
+      color: white;
+      font-weight: bold;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s;
+      margin-top: 10px;
+      font-size: 18px;
+    }
+
+    /* Responsive Ayarlamalar */
+    @media (max-width: 768px) {
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+      }
+
+      .menu-center {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .menu-center a {
+        padding: 10px;
+        font-size: 16px;
+      }
+
+      .bio-logo {
+        width: 80px;
+      }
+
+      .spotify-section {
+        flex-direction: column;
+        padding: 20px 10px;
+      }
+
+      .player-box {
+        width: 100%;
+      }
+
+      .form-container {
+        padding: 30px;
+      }
+
+      .form-container h2 {
+        font-size: 28px;
+      }
+
+      .form-container label {
+        font-size: 18px;
+      }
+
+      .form-container select,
+      .form-container textarea,
+      .form-container input {
+        padding: 12px;
+        font-size: 16px;
+      }
+
+      .form-container button {
+        padding: 14px;
+        font-size: 18px;
+      }
+
+      .diskografi-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .album-card {
+        width: 90%;
+        max-width: 300px;
+      }
+
+      .coming-soon-section {
+        width: 90%;
+        margin: 40px auto;
+      }
+    }
   </style>
 </head>
 
@@ -349,16 +483,42 @@
 </section>
   <!-- Ana Sayfa -->
   <section id="home" class="page-section active">
-    <div class="spotify-section">
-      <div class="player-box">
-        <div class="logo-kan-wrapper" style="margin-bottom: 20px;">
-          <img src="Cursed In Eternity.png" alt="Cursed In Eternity Logo" style="width: 160px; height: auto;">
-          <img src="rope.png" class="rope-effect">
-        </div>
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/1YgeIDUsYT1yPsPD8utZuN?utm_source=generator&theme=0" width="100%" height="700" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  <div class="coming-soon-section" style="text-align:center; margin:40px auto 0 auto; background:rgba(0,0,0,0.7); padding:24px 16px 16px 16px; border-radius:12px; max-width:600px;">
+    <div class="coming-soon-title" style="font-size:28px; font-weight:bold; color:#ff4d4d; margin-bottom:18px; letter-spacing:2px;">Coming Soon...</div>
+    <img src="riseofsilence.png" alt="Rise Of Silence" style="width:100%; max-width:340px; border-radius:10px; margin-bottom:18px; box-shadow:0 0 16px #000;">
+    <div class="countdown-box" data-date="Feb 6, 2026 00:00:00" style="display:flex; justify-content:center; gap:20px; background:#000; padding:10px 0; border-radius:8px; margin:18px 0;">
+      <div class="countdown-unit" style="text-align:center;">
+        <span class="count-num days" style="font-size:28px; font-weight:bold; color:#ff4d4d; display:block; letter-spacing:1px;">00</span>
+        <span class="count-label" style="font-size:12px; color:white; letter-spacing:1px;">GÜN</span>
+      </div>
+      <div class="countdown-unit" style="text-align:center;">
+        <span class="count-num hours" style="font-size:28px; font-weight:bold; color:#ff4d4d; display:block; letter-spacing:1px;">00</span>
+        <span class="count-label" style="font-size:12px; color:white; letter-spacing:1px;">SAAT</span>
+      </div>
+      <div class="countdown-unit" style="text-align:center;">
+        <span class="count-num minutes" style="font-size:28px; font-weight:bold; color:#ff4d4d; display:block; letter-spacing:1px;">00</span>
+        <span class="count-label" style="font-size:12px; color:white; letter-spacing:1px;">DK</span>
+      </div>
+      <div class="countdown-unit" style="text-align:center;">
+        <span class="count-num seconds" style="font-size:28px; font-weight:bold; color:#ff4d4d; display:block; letter-spacing:1px;">00</span>
+        <span class="count-label" style="font-size:12px; color:white; letter-spacing:1px;">SN</span>
       </div>
     </div>
-  </section>
+    <a href="https://distrokid.com/hyperfollow/cursedineternity1/rise-of-silence" target="_blank" class="presave-btn" style="display:inline-flex; align-items:center; gap:8px; background:#ff4d4d; color:white; font-weight:bold; padding:12px 24px; border-radius:8px; text-decoration:none; transition:background 0.3s; margin-top:10px; font-size:18px;">
+      <img src="spotify.png" alt="Spotify" style="width:24px; height:24px;">
+      Pre-Save Albümü
+    </a>
+  </div>
+  <div class="spotify-section">
+    <div class="player-box">
+      <div class="logo-kan-wrapper" style="margin-bottom: 20px;">
+        <img src="Cursed In Eternity.png" alt="Cursed In Eternity Logo" style="width: 160px; height: auto;">
+        <img src="rope.png" class="rope-effect">
+      </div>
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/1YgeIDUsYT1yPsPD8utZuN?utm_source=generator&theme=0" width="100%" height="700" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
 
 <!-- Biyografi -->
 <section id="bio" class="page-section">
@@ -402,6 +562,22 @@
 
   <!-- Albüm Grid Yan Yana -->
   <div class="diskografi-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;">
+
+    <!-- Rise Of Silence (2026) Diskografi Kartı - EN BAŞA TAŞINDI -->
+    <div class="album-card">
+      <div class="album-cover">
+        <img src="riseofsilence.png" alt="Rise Of Silence">
+        <div class="album-info">
+          <h3>Rise Of Silence</h3>
+          <p>Çıkış Yılı: 2026</p>
+        </div>
+        <div class="tracklist">
+          <ul>
+            <li>Albüm şarkı listesi buraya gelecek...</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <!-- Again (2024) -->
     <div class="album-card">
@@ -584,9 +760,13 @@
             <li>Işığın Ardında</li>
             <li>İnandığımız Yalanlar</li>
             <li>Umutsuzluğa Haykırış</li>
-            <li>Son
-</div>
-</section>
+            <li>Son Söz</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>hayır hal
 
  <!-- Merch -->
  <section id="merch" class="page-section">
@@ -668,7 +848,6 @@
       </form>
     </div>
   </section>
-
   <!-- Sayfa Geçişleri ve Form Script -->
   <script>
     function showSection(sectionId) {
@@ -708,8 +887,31 @@
       });
     });
 
+    function startCountdown() {
+      const countdowns = document.querySelectorAll('.countdown-box');
+      countdowns.forEach(cd => {
+        const releaseDate = new Date(cd.getAttribute('data-date')).getTime();
+        setInterval(() => {
+          const now = new Date().getTime();
+          const distance = releaseDate - now;
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          cd.querySelector('.days').textContent = days.toString().padStart(2, '0');
+          cd.querySelector('.hours').textContent = hours.toString().padStart(2, '0');
+          cd.querySelector('.minutes').textContent = minutes.toString().padStart(2, '0');
+          cd.querySelector('.seconds').textContent = seconds.toString().padStart(2, '0');
+          if (distance < 0) {
+            cd.innerHTML = "<span style='color:#ff4d4d;'>Albüm Çıktı!</span>";
+          }
+        }, 1000);
+      });
+    }
+
     window.onload = function () {
       showSection('home');
+      startCountdown();
     };
   </script>
 
