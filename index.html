@@ -30,399 +30,15 @@
       })
     });
   </script>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-image: url('background.png');
-      background-size: cover;
-      background-repeat: repeat-y;
-      background-position: top center;
-      font-family: 'Arial', sans-serif;
-      color: white;
-    }
-
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 60px;
-      background-color: rgba(0, 0, 0, 0.7);
-    }
-
-    .top-logo {
-      width: 120px;
-      height: auto;
-    }
-
-    .menu-center {
-      display: flex;
-      gap: 25px;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .menu-center a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 18px;
-      padding: 8px 12px;
-      border-radius: 5px;
-      transition: background 0.3s, color 0.3s;
-      cursor: pointer;
-      position: relative;
-    }
-
-    .menu-center a:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-      color: #ff4d4d;
-    }
-
-    .menu-center a .rope-effect {
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 20px;
-      height: auto;
-      opacity: 0;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .menu-center a:hover .rope-effect {
-      animation: ropeFadeDown 1.5s ease-in-out forwards;
-    }
-
-    .logo-kan-wrapper {
-      position: relative;
-      display: inline-block;
-      transition: transform 0.3s ease;
-      z-index: 2;
-    }
-
-    .logo-kan-wrapper:hover {
-      transform: scale(1.1);
-      filter: drop-shadow(0 0 10px #ff4d4d);
-    }
-
-    .logo-kan-wrapper .rope-effect {
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 20px;
-      height: auto;
-      opacity: 0;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .logo-kan-wrapper:hover .rope-effect {
-      animation: ropeFadeDown 1.5s ease-in-out forwards;
-    }
-
-    @keyframes ropeFadeDown {
-      0% { top: 100%; opacity: 0; }
-      50% { top: 110%; opacity: 0.8; }
-      100% { top: 120%; opacity: 1; }
-    }
-
-    .page-section {
-      padding: 60px 40px;
-      text-align: center;
-      display: none;
-    }
-
-    .page-section.active {
-      display: block;
-    }
-
-    .bio-logo {
-      width: 100px;
-      margin: 10px 0;
-    }
-
-    .spotify-section {
-      margin-top: 60px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 40px 60px;
-      background-color: rgba(0, 0, 0, 0.6);
-      flex-wrap: wrap;
-      gap: 40px;
-    }
-
-    .player-box {
-      width: 80%;
-      text-align: center;
-      position: relative;
-      overflow: visible;
-    }
-
-    #sosyal {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    #iletisim {
-      background-image: url('background.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      padding: 60px 20px;
-      color: #fff;
-      text-align: center;
-      min-height: 100vh;
-    }
-
-    .form-container {
-      width: 100%;
-      max-width: 800px;
-      background-color: rgba(0,0,0,0.85);
-      padding: 50px;
-      border-radius: 16px;
-      color: white;
-      font-family: Arial, sans-serif;
-      box-shadow: 0 0 40px rgba(0,0,0,0.6);
-      text-align: center;
-      margin: 0 auto;
-    }
-
-    .form-container h2 {
-      margin-bottom: 40px;
-      font-size: 32px;
-    }
-
-    .form-container label {
-      font-size: 20px;
-      display: block;
-      text-align: left;
-      margin-bottom: 10px;
-    }
-
-    .form-container select,
-    .form-container textarea,
-    .form-container input {
-      width: 100%;
-      padding: 14px;
-      margin-bottom: 30px;
-      border-radius: 8px;
-      border: none;
-      font-size: 18px;
-      resize: vertical;
-    }
-
-    .form-container button {
-      width: 100%;
-      padding: 16px;
-      background-color: #0f9d58;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 20px;
-      cursor: pointer;
-    }
-
-    /* 🎵 Diskografi Albüm Kartları */
-    .diskografi-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
-      padding: 40px 20px;
-    }
-
-    .album-card {
-      width: 240px;
-      position: relative;
-      text-align: center;
-      color: white;
-    }
-
-    .album-cover {
-      position: relative;
-      overflow: hidden;
-      border-radius: 10px;
-      background-color: rgba(0,0,0,0.6);
-      transition: transform 0.3s ease;
-    }
-
-    .album-cover img {
-      width: 100%;
-      border-radius: 10px;
-    }
-
-    .album-info {
-      margin-top: 10px;
-    }
-
-    .tracklist {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background-color: rgba(0,0,0,0.85);
-      padding: 10px;
-      border-radius: 0 0 10px 10px;
-      font-size: 14px;
-      color: white;
-      opacity: 0;
-      transform: translateY(100%);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .album-cover:hover .tracklist {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-
-    .countdown-box {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      background: #000;
-      padding: 10px 0;
-      border-radius: 8px;
-      margin: 18px 0;
-    }
-
-    .countdown-unit {
-      text-align: center;
-    }
-
-    .count-num {
-      font-size: 28px;
-      font-weight: bold;
-      color: #ff4d4d;
-      display: block;
-      letter-spacing: 1px;
-    }
-
-    .count-label {
-      font-size: 12px;
-      color: white;
-      letter-spacing: 1px;
-    }
-
-    .coming-soon-section {
-      text-align: center;
-      margin: 40px auto 0 auto;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 24px 16px 16px 16px;
-      border-radius: 12px;
-      max-width: 600px;
-    }
-
-    .coming-soon-title {
-      font-size: 28px;
-      font-weight: bold;
-      color: #ff4d4d;
-      margin-bottom: 18px;
-      letter-spacing: 2px;
-    }
-
-    .presave-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #ff4d4d;
-      color: white;
-      font-weight: bold;
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.3s;
-      margin-top: 10px;
-      font-size: 18px;
-    }
-
-    /* Responsive Ayarlamalar */
-    @media (max-width: 768px) {
-      .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px 20px;
-      }
-
-      .menu-center {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        text-align: center;
-      }
-
-      .menu-center a {
-        padding: 10px;
-        font-size: 16px;
-      }
-
-      .bio-logo {
-        width: 80px;
-      }
-
-      .spotify-section {
-        flex-direction: column;
-        padding: 20px 10px;
-      }
-
-      .player-box {
-        width: 100%;
-      }
-
-      .form-container {
-        padding: 30px;
-      }
-
-      .form-container h2 {
-        font-size: 28px;
-      }
-
-      .form-container label {
-        font-size: 18px;
-      }
-
-      .form-container select,
-      .form-container textarea,
-      .form-container input {
-        padding: 12px;
-        font-size: 16px;
-      }
-
-      .form-container button {
-        padding: 14px;
-        font-size: 18px;
-      }
-
-      .diskografi-grid {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .album-card {
-        width: 90%;
-        max-width: 300px;
-      }
-
-      .coming-soon-section {
-        width: 90%;
-        margin: 40px auto;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
   <!-- Üst Menü -->
   <div class="top-bar">
     <div class="logo-kan-wrapper">
-      <img src="Cursed In Eternity.png" alt="Sol Logo" class="top-logo">
+      <img src="cursed-in-eternity.png" alt="Sol Logo" class="top-logo">
       <img src="rope.png" class="rope-effect">
     </div>
     <div class="menu-center">
@@ -436,6 +52,10 @@
       </a>
       <a onclick="showSection('diskografi')">
         Diskografi
+        <img src="rope.png" class="rope-effect">
+      </a>
+      <a onclick="showSection('galeri')">
+        Galeri
         <img src="rope.png" class="rope-effect">
       </a>
       <a onclick="showSection('merch')">
@@ -452,7 +72,7 @@
       </a>
     </div>
     <div class="logo-kan-wrapper">
-      <img src="Cursed In Eternity.png" alt="Sağ Logo" class="top-logo">
+      <img src="cursed-in-eternity.png" alt="Sağ Logo" class="top-logo">
       <img src="rope.png" class="rope-effect">
     </div>
   </div>
@@ -484,7 +104,7 @@
   <!-- Ana Sayfa -->
   <section id="home" class="page-section active">
   <div class="coming-soon-section" style="text-align:center; margin:40px auto 0 auto; background:rgba(0,0,0,0.7); padding:24px 16px 16px 16px; border-radius:12px; max-width:600px;">
-    <div class="coming-soon-title" style="font-size:28px; font-weight:bold; color:#ff4d4d; margin-bottom:18px; letter-spacing:2px;">ÇIKTI!</div>
+    <div class="coming-soon-title" style="font-size:28px; font-weight:bold; color:#ff4d4d; margin-bottom:18px; letter-spacing:2px;">Coming Soon...</div>
     <img src="riseofsilence.png" alt="Rise Of Silence" style="width:100%; max-width:340px; border-radius:10px; margin-bottom:18px; box-shadow:0 0 16px #000;">
     <div class="countdown-box" data-date="Feb 6, 2026 00:00:00" style="display:flex; justify-content:center; gap:20px; background:#000; padding:10px 0; border-radius:8px; margin:18px 0;">
       <div class="countdown-unit" style="text-align:center;">
@@ -504,9 +124,9 @@
         <span class="count-label" style="font-size:12px; color:white; letter-spacing:1px;">SN</span>
       </div>
     </div>
-    <a href="https://open.spotify.com/intl-tr/album/6tkhVaylsKUJNHrBJXa92o?si=MPrM0zhHSLObnFguXRHN4w" target="_blank" class="presave-btn" style="display:inline-flex; align-items:center; gap:8px; background:#ff4d4d; color:white; font-weight:bold; padding:12px 24px; border-radius:8px; text-decoration:none; transition:background 0.3s; margin-top:10px; font-size:18px;">
+    <a href="https://distrokid.com/hyperfollow/cursedineternity1/rise-of-silence" target="_blank" class="presave-btn" style="display:inline-flex; align-items:center; gap:8px; background:#ff4d4d; color:white; font-weight:bold; padding:12px 24px; border-radius:8px; text-decoration:none; transition:background 0.3s; margin-top:10px; font-size:18px;">
       <img src="spotify.png" alt="Spotify" style="width:24px; height:24px;">
-      Çıktı!
+      Pre-Save Albümü
     </a>
   </div>
   <div class="spotify-section">
@@ -517,6 +137,30 @@
       </div>
       <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/1YgeIDUsYT1yPsPD8utZuN?utm_source=generator&theme=0" width="100%" height="700" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
+  </div>
+
+</section>
+
+<!-- Galeri Bölümü (Artık sadece butondan erişilen ayrı bir section) -->
+<section id="galeri" class="page-section">
+  <div style="text-align: center; margin-bottom: 20px;" class="logo-kan-wrapper">
+    <h2>Galeri</h2>
+    <img src="rope.png" class="rope-effect">
+  </div>
+  <div class="gallery-grid">
+    <img src="Cursed İn Eternity 1.jpg" alt="Galeri Görseli 1" class="gallery-img">
+    <img src="Cursed İn Eternity 2.jpg" alt="Galeri Görseli 2" class="gallery-img">
+    <img src="Cursed İn Eternity 3.jpg" alt="Galeri Görseli 3" class="gallery-img">
+    <img src="Cursed İn Eternity 4.jpg" alt="Galeri Görseli 4" class="gallery-img">
+    <img src="Cursed İn Eternity 5.jpg" alt="Galeri Görseli 5" class="gallery-img">
+  <!-- Galeri Lightbox Modal -->
+  <div id="galleryModal" class="gallery-modal">
+    <span class="gallery-close" id="galleryClose">&times;</span>
+    <img class="gallery-modal-content" id="galleryModalImg">
+    <div class="gallery-modal-caption" id="galleryModalCaption"></div>
+    <button class="gallery-nav gallery-prev" id="galleryPrev">&#10094;</button>
+    <button class="gallery-nav gallery-next" id="galleryNext">&#10095;</button>
+  </div>
   </div>
 </section>
 
@@ -543,6 +187,11 @@
         Tolga Demirdelen: Lead/Ritim Gitar
         Muhammed İzmirlioğlu: Vokal
         Hasan Yüzücü: Vokal
+        Bedirhan Karamızrak: Davul
+
+        Ekstra Katkılar:
+        Doğukan Gürel: Davul Kayıtları
+        Ege Baydar: Mix/Mastering
       </p>
     </div>
   </div>
@@ -568,14 +217,7 @@
         </div>
         <div class="tracklist">
           <ul>
-            <li>Obsessions</li>
-            <li>Aciz Dünyam V2</li>
-            <li>Again</li>
-            <li>Kan Ve Karanlık V2</li>
-            <li>Rise Of Silence</li>
-            <li>Toprak</li>
-            <li>Last Daylight V2</li>
-            <li>Darkness Falls V2</li>
+            <li>Albüm şarkı listesi buraya gelecek...</li>
           </ul>
         </div>
       </div>
@@ -593,6 +235,22 @@
           <ul>
             <li>Again</li>
             <li>Again (Instrumental)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sourness (2022) -->
+    <div class="album-card">
+      <div class="album-cover">
+        <img src="https://i.scdn.co/image/ab67616d0000b273f1eaaee44e4cd78195115628" alt="Sourness">
+        <div class="album-info">
+          <h3>Sourness</h3>
+          <p>Çıkış Yılı: 2022</p>
+        </div>
+        <div class="tracklist">
+          <ul>
+            <li>Sourness</li>
           </ul>
         </div>
       </div>
@@ -792,7 +450,7 @@
 
       <!-- Rise T-Shirt -->
       <div style="text-align: center; width: 240px;">
-        <img src="https://cdn.shopier.app/pictures_large/dagonatelier_b3dbc85cb0da3d3d8ef750887d15b07e.png" alt="Rise T-Shirt" class="bio-hover" style="width: 100%; border-radius: 10px;">
+        <img src="https://cdn.shopier.app/pictures_large/DagonWearAnkara_3b81c9dfd174468fd79d1552319bba34.jpg" alt="Rise T-Shirt" class="bio-hover" style="width: 100%; border-radius: 10px;">
         <p><strong>Rise of the Silence Oversize Unisex T-Shirt</strong></p>
         <a href="https://www.shopier.com/32102147" target="_blank"><button>Satın Al</button></a>
       </div>
@@ -981,8 +639,6 @@
         Copyright © 2026 Berat ERTEK
       </span>
     </footer>
+  <!-- Galeri Lightbox kodu script.js dosyasına taşındı -->
 </body>
 </html>
-
-
-
