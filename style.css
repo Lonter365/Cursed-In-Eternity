@@ -352,6 +352,36 @@ body {
   margin-bottom: 18px;
   letter-spacing: 2px;
 }
+.hero-video-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 18px;
+}
+.hero-video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 16px #000;
+  background: #000;
+}
+.hero-mute-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.75);
+  color: var(--theme-color);
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+}
+.hero-mute-btn:hover {
+  background: rgba(0, 0, 0, 0.95);
+}
 .presave-btn {
   display: inline-flex;
   align-items: center;

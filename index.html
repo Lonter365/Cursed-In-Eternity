@@ -105,7 +105,13 @@
   <section id="home" class="page-section active">
   <div class="coming-soon-section" style="text-align:center; margin:40px auto 0 auto; background:rgba(0,0,0,0.7); padding:24px 16px 16px 16px; border-radius:12px; max-width:600px;">
     <div class="coming-soon-title" style="font-size:28px; font-weight:bold; color:#8cd0ff; margin-bottom:18px; letter-spacing:2px;">Coming Soon...</div>
-    <img src="ashensky.png" alt="Rise Of Silence" style="width:100%; max-width:340px; border-radius:10px; margin-bottom:18px; box-shadow:0 0 16px #000;">
+    <div class="hero-video-wrap">
+      <video id="heroVideo" class="hero-video" poster="ashensky.png" autoplay loop playsinline preload="auto" muted>
+        <source src="ashensky.mp4" type="video/mp4">
+        Tarayıcınız video oynatmayı desteklemiyor.
+      </video>
+      <button id="heroMuteBtn" class="hero-mute-btn" type="button" aria-label="Video sesini kapat">🔊</button>
+    </div>
     <div class="countdown-box" data-date="August 6, 2026 00:00:00" style="display:flex; justify-content:center; gap:20px; background:#000; padding:10px 0; border-radius:8px; margin:18px 0;">
       <div class="countdown-unit" style="text-align:center;">
         <span class="count-num days" style="font-size:28px; font-weight:bold; color:#8cd0ff; display:block; letter-spacing:1px;">00</span>
@@ -575,6 +581,36 @@
         }
       });
     });
+
+    const heroVideo = document.getElementById("heroVideo");
+    const heroMuteBtn = document.getElementById("heroMuteBtn");
+    if (heroVideo) {
+      heroVideo.volume = 1;
+      heroVideo.muted = true;
+
+      const startHeroVideo = () => {
+        heroVideo.play().then(() => {
+          heroVideo.muted = false;
+        }).catch(() => {});
+      };
+
+      heroVideo.addEventListener("canplay", startHeroVideo, { once: true });
+      window.addEventListener("load", startHeroVideo, { once: true });
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden) {
+          heroVideo.play().catch(() => {});
+        }
+      });
+
+      if (heroMuteBtn) {
+        heroMuteBtn.addEventListener("click", () => {
+          const isMuted = heroVideo.muted;
+          heroVideo.muted = !isMuted;
+          heroMuteBtn.textContent = heroVideo.muted ? "🔇" : "🔊";
+          heroMuteBtn.setAttribute("aria-label", heroVideo.muted ? "Video sesini aç" : "Video sesini kapat");
+        });
+      }
+    }
 
     function startCountdown() {
       const countdowns = document.querySelectorAll('.countdown-box');
