@@ -106,11 +106,8 @@
   <div class="coming-soon-section" style="text-align:center; margin:40px auto 0 auto; background:rgba(0,0,0,0.7); padding:24px 16px 16px 16px; border-radius:12px; max-width:600px;">
     <div class="coming-soon-title" style="font-size:28px; font-weight:bold; color:#8cd0ff; margin-bottom:18px; letter-spacing:2px;">Coming Soon...</div>
     <div class="hero-video-wrap">
-      <video id="heroVideo" class="hero-video" poster="ashensky.png" autoplay loop playsinline preload="auto" muted>
-        <source src="ashensky.mp4" type="video/mp4">
-        Tarayıcınız video oynatmayı desteklemiyor.
-      </video>
-      <button id="heroMuteBtn" class="hero-mute-btn" type="button" aria-label="Video sesini kapat">🔊</button>
+      <image id="ashensky" class="album-cover" poster="ashensky.png">
+        <image src="ashensky.png" class="album-logo" style="width: 500px;">
     </div>
     <div class="countdown-box" data-date="August 6, 2026 00:00:00" style="display:flex; justify-content:center; gap:20px; background:#000; padding:10px 0; border-radius:8px; margin:18px 0;">
       <div class="countdown-unit" style="text-align:center;">
@@ -130,9 +127,9 @@
         <span class="count-label" style="font-size:12px; color:white; letter-spacing:1px;">SN</span>
       </div>
     </div>
-    <a href="https://distrokid.com/hyperfollow/illusionsplayandcursedineternity/ashen-sky" target="_blank" class="presave-btn" style="display:inline-flex; align-items:center; gap:8px; background:#8cd0ff; color:#000; font-weight:bold; padding:12px 24px; border-radius:8px; text-decoration:none; transition:background 0.3s; margin-top:10px; font-size:18px;">
+    <a href="https://open.spotify.com/track/7wihRAJ7xlxrEXLsymgsm3?si=vaw1ySFSSFihsjtWKKv5Wg&utm_source=copy-link" target="_blank" class="presave-btn" style="display:inline-flex; align-items:center; gap:8px; background:#8cd0ff; color:#000; font-weight:bold; padding:12px 24px; border-radius:8px; text-decoration:none; transition:background 0.3s; margin-top:10px; font-size:18px;">
       <img src="spotify.png" alt="Spotify" style="width:24px; height:24px;">
-      Pre-Save Album
+      Albüm Dinleme Link'i
     </a>
   </div>
   <div class="spotify-section">
@@ -222,31 +219,16 @@
           <h3>Ashen Sky</h3>
           <p>Çıkış Yılı: 2026</p>
         </div>
-        <div class="album-countdown">
-          <div class="countdown-box" data-date="August 6, 2026 00:00:00">
-            <div class="countdown-unit">
-              <span class="count-num days">00</span>
-              <span class="count-label">GÜN</span>
-            </div>
-            <div class="countdown-unit">
-              <span class="count-num hours">00</span>
-              <span class="count-label">SAAT</span>
-            </div>
-            <div class="countdown-unit">
-              <span class="count-num minutes">00</span>
-              <span class="count-label">DK</span>
-            </div>
-            <div class="countdown-unit">
-              <span class="count-num seconds">00</span>
-              <span class="count-label">SN</span>
-            </div>
-          </div>
-        </div>
         <div class="tracklist">
           <ul>
             <li>Ashen Sky</li>
             <li>Ash Beneath The Sun</li>
           </ul>
+        </div>
+        <div class="album-countdown">
+          <div class="countdown-box" data-url="https://open.spotify.com/track/7wihRAJ7xlxrEXLsymgsm3?si=vaw1ySFSSFihsjtWKKv5Wg">
+            <a href="https://open.spotify.com/track/7wihRAJ7xlxrEXLsymgsm3?si=vaw1ySFSSFihsjtWKKv5Wg" target="_blank" rel="noopener noreferrer" style="color:#8cd0ff; text-decoration:underline; display:inline-block; font-weight:bold;">Albüm Çıktı!</a>
+          </div>
         </div>
       </div>
     </div>
@@ -616,9 +598,19 @@
       const countdowns = document.querySelectorAll('.countdown-box');
       countdowns.forEach(cd => {
         const releaseDate = new Date(cd.getAttribute('data-date')).getTime();
-        setInterval(() => {
+        const spotifyUrl = cd.dataset.url;
+        const updateCountdown = () => {
           const now = new Date().getTime();
           const distance = releaseDate - now;
+          if (distance < 0) {
+            if (spotifyUrl) {
+              cd.innerHTML = `<a href="${spotifyUrl}" target="_blank" rel="noopener noreferrer" style="color:#8cd0ff; text-decoration:underline; display:inline-block;">Albüm Çıktı!</a>`;
+            } else {
+              cd.innerHTML = "<span style='color:#8cd0ff;'>Albüm Çıktı!</span>";
+            }
+            return;
+          }
+
           const days = Math.floor(distance / (1000 * 60 * 60 * 24));
           const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
           const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -627,10 +619,10 @@
           cd.querySelector('.hours').textContent = hours.toString().padStart(2, '0');
           cd.querySelector('.minutes').textContent = minutes.toString().padStart(2, '0');
           cd.querySelector('.seconds').textContent = seconds.toString().padStart(2, '0');
-          if (distance < 0) {
-            cd.innerHTML = "<span style='color:#8cd0ff;'>Albüm Çıktı!</span>";
-          }
-        }, 1000);
+        };
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
       });
     }
 
