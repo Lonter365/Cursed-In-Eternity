@@ -1,5 +1,9 @@
 :root {
-  --theme-color: #8cd0ff;
+  --theme-color: #e4d3a6;
+  --accent-color: rgba(167, 138, 88, 0.45);
+  --text-color: #eee8da;
+  --deep-color: #171613;
+  --panel-color: rgba(22, 21, 18, 0.88);
 }
 
 /* Galeri Lightbox Modal */
@@ -11,7 +15,7 @@
   top: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0,0,0,0.95);
+  background: rgba(16, 15, 13, 0.96);
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -25,7 +29,7 @@
   margin-bottom: 18px;
 }
 .gallery-modal-caption {
-  color: #fff;
+  color: var(--text-color);
   font-size: 20px;
   margin-bottom: 18px;
   text-align: center;
@@ -42,13 +46,13 @@
   transition: color 0.2s;
 }
 .gallery-close:hover {
-  color: #fff;
+  color: var(--text-color);
 }
 .gallery-nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.7);
+  background: rgba(22, 21, 18, 0.82);
   color: var(--theme-color);
   border: none;
   font-size: 48px;
@@ -66,25 +70,56 @@
 }
 .gallery-nav:hover {
   background: var(--theme-color);
-  color: #000;
+  color: var(--deep-color);
 }
 /* style.css - Cursed In Eternity */
 body {
   margin: 0;
   padding: 0;
-  background-image: url('background2.png');
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-image: url('doomed.jpg');
   background-size: cover;
-  background-repeat: repeat-y;
-  background-position: top center;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
   font-family: 'Arial', sans-serif;
-  color: white;
+  color: var(--text-color);
+  background-color: var(--deep-color);
+}
+a {
+  color: var(--theme-color);
+}
+a:hover {
+  color: var(--text-color);
+}
+h1,
+h2,
+h3 {
+  color: var(--theme-color);
+}
+button {
+  background-color: var(--theme-color);
+  color: var(--deep-color);
+  border: 1px solid var(--accent-color);
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+button:hover {
+  background-color: var(--accent-color);
+  color: var(--text-color);
 }
 .top-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 60px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(22, 21, 18, 0.9);
+  border-bottom: 1px solid var(--accent-color);
 }
 .top-logo {
   width: 120px;
@@ -97,7 +132,7 @@ body {
   align-items: center;
 }
 .menu-center a {
-  color: white;
+  color: var(--text-color);
   text-decoration: none;
   font-weight: bold;
   font-size: 18px;
@@ -108,7 +143,7 @@ body {
   position: relative;
 }
 .menu-center a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(228, 211, 166, 0.14);
   color: var(--theme-color);
 }
 .menu-center a .rope-effect {
@@ -161,6 +196,11 @@ body {
 }
 .page-section.active {
   display: block;
+  flex: 1 0 auto;
+}
+footer {
+  flex-shrink: 0;
+  margin-top: auto;
 }
 .bio-logo {
   width: 100px;
@@ -172,7 +212,8 @@ body {
   justify-content: center;
   align-items: flex-start;
   padding: 40px 60px;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: var(--panel-color);
+  border-top: 1px solid var(--accent-color);
   flex-wrap: wrap;
   gap: 40px;
 }
@@ -183,29 +224,27 @@ body {
   overflow: visible;
 }
 #sosyal {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: var(--panel-color);
   padding: 60px 20px;
   text-align: center;
 }
 #iletisim {
-  background-image: url('background2.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background: transparent;
   padding: 60px 20px;
-  color: #fff;
+  color: var(--text-color);
   text-align: center;
   min-height: 100vh;
 }
 .form-container {
   width: 100%;
   max-width: 800px;
-  background-color: rgba(0,0,0,0.85);
+  background-color: var(--panel-color);
   padding: 50px;
   border-radius: 16px;
-  color: white;
+  color: var(--text-color);
   font-family: Arial, sans-serif;
   box-shadow: 0 0 40px rgba(0,0,0,0.6);
+  border: 1px solid var(--accent-color);
   text-align: center;
   margin: 0 auto;
 }
@@ -226,7 +265,9 @@ body {
   padding: 14px;
   margin-bottom: 30px;
   border-radius: 8px;
-  border: none;
+  border: 1px solid var(--accent-color);
+  background-color: rgba(22, 21, 18, 0.95);
+  color: var(--text-color);
   font-size: 18px;
   resize: vertical;
 }
@@ -234,7 +275,7 @@ body {
   width: 100%;
   padding: 16px;
   background-color: var(--theme-color);
-  color: #000;
+  color: var(--deep-color);
   border: none;
   border-radius: 8px;
   font-size: 20px;
@@ -251,13 +292,13 @@ body {
   width: 240px;
   position: relative;
   text-align: center;
-  color: white;
+  color: var(--text-color);
 }
 .album-cover {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(22, 21, 18, 0.8);
   transition: transform 0.3s ease;
 }
 .album-cover img {
@@ -272,11 +313,11 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(0,0,0,0.85);
+  background-color: rgba(22, 21, 18, 0.94);
   padding: 10px;
   border-radius: 0 0 10px 10px;
   font-size: 14px;
-  color: white;
+  color: var(--text-color);
   opacity: 0;
   transform: translateY(100%);
   transition: opacity 0.4s ease, transform 0.4s ease;
@@ -292,7 +333,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 20px;
-  background: #000;
+  background: rgba(22, 21, 18, 0.92);
   padding: 10px 0;
   border-radius: 8px;
   margin: 18px 0;
@@ -315,7 +356,7 @@ body {
 .album-countdown .countdown-box {
   flex-wrap: wrap;
   gap: 8px;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(22, 21, 18, 0.94);
   padding: 8px 6px;
   border-radius: 8px;
   margin: 0;
@@ -334,13 +375,14 @@ body {
 }
 .count-label {
   font-size: 12px;
-  color: white;
+  color: var(--text-color);
   letter-spacing: 1px;
 }
 .coming-soon-section {
   text-align: center;
   margin: 40px auto 0 auto;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(22, 21, 18, 0.84);
+  border: 1px solid var(--accent-color);
   padding: 24px 16px 16px 16px;
   border-radius: 12px;
   max-width: 600px;
@@ -362,8 +404,8 @@ body {
   max-width: 100%;
   height: auto;
   border-radius: 10px;
-  box-shadow: 0 0 16px #000;
-  background: #000;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.8);
+  background: var(--deep-color);
 }
 .hero-mute-btn {
   position: absolute;
@@ -375,19 +417,19 @@ body {
   height: 40px;
   font-size: 20px;
   cursor: pointer;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(22, 21, 18, 0.88);
   color: var(--theme-color);
-  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  box-shadow: 0 0 8px rgba(0,0,0,0.65);
 }
 .hero-mute-btn:hover {
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(16, 15, 13, 0.97);
 }
 .presave-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   background: var(--theme-color);
-  color: #000;
+  color: var(--deep-color);
   font-weight: bold;
   padding: 12px 24px;
   border-radius: 8px;
@@ -407,10 +449,10 @@ body {
   width: 320px;
   max-width: 90vw;
   border-radius: 12px;
-  box-shadow: 0 0 16px #000;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.8);
   transition: transform 0.3s, box-shadow 0.3s;
   object-fit: contain;
-  background: #000;
+  background: var(--deep-color);
 }
 .gallery-grid img:hover {
   transform: scale(1.05);

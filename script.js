@@ -81,7 +81,7 @@ function startCountdown() {
       cd.querySelector('.minutes').textContent = minutes.toString().padStart(2, '0');
       cd.querySelector('.seconds').textContent = seconds.toString().padStart(2, '0');
       if (distance < 0) {
-        cd.innerHTML = "<span style='color:#8cd0ff;'>Albüm Çıktı!</span>";
+        cd.innerHTML = "<span style='color:var(--theme-color);'>Albüm Çıktı!</span>";
       }
     }, 1000);
   });
